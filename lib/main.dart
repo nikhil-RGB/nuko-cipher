@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nuko_cipher/pages/BlankScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nuko_cipher/pages/InfoPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +65,7 @@ class Welcome extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => BlankScreen())));
+                              builder: ((context) => InfoPage())));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
