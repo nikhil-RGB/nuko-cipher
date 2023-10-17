@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nuko_cipher/pages/CipherPage.dart';
+import 'package:nuko_cipher/pages/home.dart';
 
 class InfoPage extends StatelessWidget {
   @override
@@ -40,10 +40,8 @@ class InfoPage extends StatelessWidget {
                               // border radius
                               borderRadius: BorderRadius.circular(50))),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => CipherPage())));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: ((context) => home())));
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
