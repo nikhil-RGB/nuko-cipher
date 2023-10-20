@@ -57,6 +57,7 @@ class Welcome extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(208, 58),
                         backgroundColor: const Color(0xFF9B71F1),
                         shape: RoundedRectangleBorder(
                             side: BorderSide.none,
@@ -71,11 +72,11 @@ class Welcome extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text(
-                        "Get Started",
-                        style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 19,
-                            fontWeight: FontWeight.w600),
+                        "Start!",
+                        style: GoogleFonts.pressStart2p(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     )),
               ),

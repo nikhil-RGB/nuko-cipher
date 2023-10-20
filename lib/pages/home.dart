@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,7 +70,11 @@ class _homeState extends State<home> {
                   fit: StackFit.loose,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          _output.text = nukoCipher(_input.text);
+                        });
+                      },
                       child: Text(
                         "encode",
                         style: GoogleFonts.pressStart2p(
@@ -84,7 +90,10 @@ class _homeState extends State<home> {
                     Positioned(
                       top: 30,
                       left: 40,
-                      child: Image.asset("assets/images/paw.png"),
+                      child: SizedBox(
+                          height: 56,
+                          width: 69,
+                          child: Image.asset("assets/images/paw.png")),
                     ),
                   ],
                 ),
@@ -126,5 +135,21 @@ class _homeState extends State<home> {
         ),
       ),
     );
+  }
+
+  String nukoCipher(String input) {
+    Random random = Random();
+    String output = "";
+    List<String> words = input.split(' ');
+    for (String word in words) {
+      output += word + " ";
+      int randomNumber = random.nextInt(100 - 1 + 1) + 1;
+      if (randomNumber > 72) {
+        output += "meow ";
+      } else if (randomNumber > 50) {
+        output += "melon ";
+      }
+    }
+    return "nuko " + output + "nukocat";
   }
 }
