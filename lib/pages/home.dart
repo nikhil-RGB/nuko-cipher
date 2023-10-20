@@ -14,9 +14,10 @@ class _homeState extends State<home> {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
-              fit: BoxFit.cover)),
+        image: DecorationImage(
+            image: AssetImage("assets/images/background.png"),
+            fit: BoxFit.cover),
+      ),
       child: Center(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -30,25 +31,29 @@ class _homeState extends State<home> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 70,
                 ),
                 TextField(
                   controller: _input,
-                  maxLines: 8,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                  maxLines: 11,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color(0xFFEBDBFA),
                     contentPadding: EdgeInsets.all(40.0),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 5, //<-- SEE HERE
-                        color: Color.fromARGB(255, 168, 78, 220),
+                        width: 2, //<-- SEE HERE
+                        color: const Color(0xFF9B71F1),
                       ),
                       borderRadius: BorderRadius.circular(50.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 3, //<-- SEE HERE
-                        color: Color.fromARGB(255, 168, 78, 220),
+                        width: 1, //<-- SEE HERE
+                        color: const Color(0xFF9B71F1),
                       ),
                       borderRadius: BorderRadius.circular(50.0),
                     ),
@@ -57,27 +62,45 @@ class _homeState extends State<home> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Meow")),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "encode",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(150, 60),
+                    backgroundColor: const Color(0xFFF1B671),
+                    foregroundColor: Colors.white,
+                  ),
+                ),
                 SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _output,
-                  maxLines: 8,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                  maxLines: 11,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color(0xFFFADBF1),
                     contentPadding: EdgeInsets.all(40.0),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 5, //<-- SEE HERE
-                        color: Color.fromARGB(255, 168, 78, 220),
+                        width: 2, //<-- SEE HERE
+                        color: const Color(0xFFFD23DA),
                       ),
                       borderRadius: BorderRadius.circular(50.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 3, //<-- SEE HERE
-                        color: Color.fromARGB(255, 168, 78, 220),
+                        width: 1, //<-- SEE HERE
+                        color: const Color(0xFFFD23DA),
                       ),
                       borderRadius: BorderRadius.circular(50.0),
                     ),
