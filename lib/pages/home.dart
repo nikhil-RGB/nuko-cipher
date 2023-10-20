@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class home extends StatefulWidget {
   @override
@@ -45,45 +46,58 @@ class _homeState extends State<home> {
                     contentPadding: EdgeInsets.all(40.0),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2, //<-- SEE HERE
+                        width: 3, //<-- SEE HERE
                         color: const Color(0xFF9B71F1),
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 1, //<-- SEE HERE
+                        width: 2, //<-- SEE HERE
                         color: const Color(0xFF9B71F1),
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "encode",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                Stack(
+                  clipBehavior: Clip.none,
+                  fit: StackFit.loose,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "encode",
+                        style: GoogleFonts.pressStart2p(
+                          fontSize: 14,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(150, 60),
+                        backgroundColor: const Color(0xFFF1B671),
+                        foregroundColor: Colors.white,
+                      ),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(150, 60),
-                    backgroundColor: const Color(0xFFF1B671),
-                    foregroundColor: Colors.white,
-                  ),
+                    Positioned(
+                      top: 30,
+                      left: 40,
+                      child: Image.asset("assets/images/paw.png"),
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 TextField(
                   controller: _output,
                   style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFFFD23DA),
+                  ),
                   maxLines: 11,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
@@ -92,17 +106,17 @@ class _homeState extends State<home> {
                     contentPadding: EdgeInsets.all(40.0),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 2, //<-- SEE HERE
+                        width: 3, //<-- SEE HERE
                         color: const Color(0xFFFD23DA),
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        width: 1, //<-- SEE HERE
+                        width: 2, //<-- SEE HERE
                         color: const Color(0xFFFD23DA),
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                   ),
                 ),
