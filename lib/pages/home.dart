@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nuko_cipher/constants.dart';
 
 class home extends StatefulWidget {
   @override
@@ -138,18 +139,20 @@ class _homeState extends State<home> {
   }
 
   String nukoCipher(String input) {
+    input = input.toLowerCase();
     Random random = Random();
     String output = "";
-    List<String> words = input.split(' ');
+    List<String> words = input.split(
+      ' ',
+    );
     for (String word in words) {
-      output += word + " ";
-      int randomNumber = random.nextInt(100 - 1 + 1) + 1;
-      if (randomNumber > 72) {
-        output += "meow ";
-      } else if (randomNumber > 50) {
-        output += "melon ";
+      if (replacements.containsKey(word)) {
+        word = replacements[word];
       }
+      output += word + " ";
     }
-    return "nuko " + output + "nukocat";
+    int pref_index = random.nextInt(6);
+    int suff_index = random.nextInt(3);
+    return prefixes[pref_index] + " $output " + suffixes[suff_index];
   }
 }
