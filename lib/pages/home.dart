@@ -139,7 +139,10 @@ class _homeState extends State<home> {
   }
 
   String nukoCipher(String input) {
+    List<String> punctuations = ["!", ",", "?", ".", "/", ";"];
     input = input.toLowerCase();
+    input = input.replaceAll("\n", " ");
+    input = spacePunctuations(input, punctuations);
     Random random = Random();
     String output = "";
     List<String> words = input.split(
@@ -148,11 +151,34 @@ class _homeState extends State<home> {
     for (String word in words) {
       if (replacements.containsKey(word)) {
         word = replacements[word];
+      } else if (random.nextInt(100) > 91) {
+        word += " ${additions[random.nextInt(4)]} ";
       }
+
       output += word + " ";
     }
     int pref_index = random.nextInt(6);
     int suff_index = random.nextInt(3);
-    return prefixes[pref_index] + " $output " + suffixes[suff_index];
+    return (prefixes[pref_index] + " $output " + suffixes[suff_index])
+        .replaceAll("  ", " ");
+  }
+
+  //This function adds a space before and after punctuations
+  String spacePunctuations(String input, List<String> punctuations) {
+    String output = "";
+
+    List<String> words = input.split(' ');
+    for (String word in words) {
+      output += "${punctuate(word, punctuations)} ";
+    }
+    return output;
+  }
+
+  //spaces the punctuations in a word with any symbol(, ? ! / ; .)
+  String punctuate(String input, List<String> punctutations) {
+    for (String symbol in punctutations) {
+      input = input.replaceAll(symbol, " $symbol ");
+    }
+    return input;
   }
 }
